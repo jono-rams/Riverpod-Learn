@@ -1,11 +1,14 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_files/models/product.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class CartNotifier extends Notifier<Set<Product>> {
+part 'cart_providers.g.dart';
+
+@riverpod
+class CartNotifier extends _$CartNotifier {
   // inital value
   @override
   Set<Product> build() {
-    return {};
+    return const {};
   }
 
   // methods to update state
@@ -21,7 +24,3 @@ class CartNotifier extends Notifier<Set<Product>> {
     }
   }
 }
-
-final cartNotifierProvider = NotifierProvider<CartNotifier, Set<Product>>(() {
-  return CartNotifier();
-});
